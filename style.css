@@ -361,6 +361,7 @@ nav button.on{color:var(--amber)}
 .card{width:100%;aspect-ratio:2.5/3.5;border-radius:14px;position:relative;transform-style:preserve-3d;will-change:transform;overflow:hidden}
 
 .card.legendaria,.card.epica,.card.rara,.card.comun{box-shadow:0 20px 50px rgba(0,0,0,.8)}
+.col-cell .card.legendaria,.col-cell .card.epica,.col-cell .card.rara,.col-cell .card.comun{box-shadow:0 4px 12px rgba(0,0,0,.2)}
 
 .card-img-wrap{position:absolute;inset:0;border-radius:14px;overflow:hidden}
 .card-img{position:absolute;inset:0;background-size:cover;background-position:center top;animation:kb 6s ease-in-out infinite}
