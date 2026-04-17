@@ -19,6 +19,27 @@ let activePacks=new Set(['AT-1']);
 let S={pool:[],order:[],idx:0,score:0,streak:0,cluesShown:1,answered:false,correct:false,unlocked:new Set()};
 try{const v=JSON.parse(localStorage.getItem('pb4')||'{}');if(v.u)S.unlocked=new Set(v.u);if(v.s)S.score=v.s;}catch(e){}
 try{const imgs=JSON.parse(localStorage.getItem('pb4_imgs')||'{}');Object.assign(IMAGES,imgs);}catch(e){}
+
+// ─── Settings ───────────────────────────────────────
+let CFG={light:false,sound:true,showAll:false};
+try{const c=JSON.parse(localStorage.getItem('pb4_cfg')||'{}');Object.assign(CFG,c);}catch(e){}
+function saveCFG(){try{localStorage.setItem('pb4_cfg',JSON.stringify(CFG));}catch(e){}}
+function applySettings(){
+  document.body.classList.toggle('light',CFG.light);
+  document.getElementById('sw-light').checked=CFG.light;
+  document.getElementById('sw-sound').checked=CFG.sound;
+  document.getElementById('sw-showall').checked=CFG.showAll;
+}
+function toggleLight(on){CFG.light=on;saveCFG();document.body.classList.toggle('light',on);}
+function toggleSound(on){CFG.sound=on;saveCFG();}
+function toggleShowAll(on){CFG.showAll=on;saveCFG();if(document.getElementById('view-col').classList.contains('on'))renderCollection();}
+function resetProgress(){
+  if(!confirm('¿Reiniciar todo el progreso? Se bloquearán todas las cartas y la puntuación volverá a 0.'))return;
+  S.unlocked=new Set();S.score=0;S.streak=0;save();
+  document.getElementById('sc').textContent='0';
+  renderCollection();
+  showToast('Progreso reiniciado');
+}
 function save(){try{localStorage.setItem('pb4',JSON.stringify({u:[...S.unlocked],s:S.score}));}catch(e){}}
 function saveImgs(){try{const t={};Object.entries(IMAGES).forEach(([k,v])=>{if(v&&v.startsWith('data:'))t[k]=v;});localStorage.setItem('pb4_imgs',JSON.stringify(t));}catch(e){console.warn('Images too large');}}
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
@@ -27,6 +48,7 @@ function current(){return S.pool[S.order[S.idx]];}
 function togglePack(id){const el=document.getElementById('pack-'+id);if(!el||el.classList.contains('locked'))return;activePacks.has(id)?activePacks.delete(id):activePacks.add(id);el.classList.toggle('sel',activePacks.has(id));document.getElementById('start-btn').disabled=activePacks.size===0;}
 
 function startGame(){
+  applySettings();
   const packMap={'AT-1':CHARS,'AT-2':PACK2,'AT-3':PACK3,'AT-4':PACK4,'AT-5':PACK5};
   S.pool=[...activePacks].flatMap(id=>packMap[id]||[]);
   S.order=shuffle([...Array(S.pool.length).keys()]);
@@ -197,9 +219,10 @@ function renderCollection(){
   const grid=document.getElementById('col-grid');grid.innerHTML='';let uc=0;
   allChars.forEach(ch=>{
     const ul=S.unlocked.has(ch.name);if(ul)uc++;
+    const show=ul||CFG.showAll;
     const cell=document.createElement('div');cell.className='col-cell';
-    const wrap=buildCard(ch,ul);
-    if(ul)wrap.addEventListener('click',()=>viewCard(ch));
+    const wrap=buildCard(ch,show);
+    if(show)wrap.addEventListener('click',()=>viewCard(ch));
     cell.appendChild(wrap);
     grid.appendChild(cell);
   });
@@ -240,7 +263,7 @@ function spawnParticles(rarity){
 
 let _ac=null;
 function ac(){if(!_ac)_ac=new(window.AudioContext||window.webkitAudioContext)();return _ac;}
-function snd(ok){try{const c=ac();if(ok){[523.25,659.25,783.99].forEach((f,i)=>{const o=c.createOscillator(),g=c.createGain();o.type='triangle';o.frequency.value=f;g.gain.setValueAtTime(0,c.currentTime+i*.08);g.gain.linearRampToValueAtTime(.06,c.currentTime+i*.08+.03);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+i*.08+.5);o.connect(g);g.connect(c.destination);o.start(c.currentTime+i*.08);o.stop(c.currentTime+i*.08+.5);});}else{const o=c.createOscillator(),g=c.createGain();o.type='sawtooth';o.frequency.setValueAtTime(180,c.currentTime);o.frequency.exponentialRampToValueAtTime(70,c.currentTime+.22);g.gain.setValueAtTime(.07,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.22);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+.22);}}catch(e){}}
-function sndChord(r){try{const c=ac();const cs={legendaria:[523.25,659.25,783.99,1046.5],epica:[440,523.25,659.25,880],rara:[392,493.88,587.33],comun:[349.23,440,523.25]};(cs[r]||cs.comun).forEach((f,i)=>setTimeout(()=>{const o=c.createOscillator(),g=c.createGain();o.type='triangle';o.frequency.value=f;g.gain.setValueAtTime(0,c.currentTime);g.gain.linearRampToValueAtTime(.05,c.currentTime+.04);g.gain.setValueAtTime(.05,c.currentTime+.4);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+2.2);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+2.2);},i*70));}catch(e){}}
+function snd(ok){if(!CFG.sound)return;try{const c=ac();if(ok){[523.25,659.25,783.99].forEach((f,i)=>{const o=c.createOscillator(),g=c.createGain();o.type='triangle';o.frequency.value=f;g.gain.setValueAtTime(0,c.currentTime+i*.08);g.gain.linearRampToValueAtTime(.06,c.currentTime+i*.08+.03);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+i*.08+.5);o.connect(g);g.connect(c.destination);o.start(c.currentTime+i*.08);o.stop(c.currentTime+i*.08+.5);});}else{const o=c.createOscillator(),g=c.createGain();o.type='sawtooth';o.frequency.setValueAtTime(180,c.currentTime);o.frequency.exponentialRampToValueAtTime(70,c.currentTime+.22);g.gain.setValueAtTime(.07,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.22);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+.22);}}catch(e){}}
+function sndChord(r){if(!CFG.sound)return;try{const c=ac();const cs={legendaria:[523.25,659.25,783.99,1046.5],epica:[440,523.25,659.25,880],rara:[392,493.88,587.33],comun:[349.23,440,523.25]};(cs[r]||cs.comun).forEach((f,i)=>setTimeout(()=>{const o=c.createOscillator(),g=c.createGain();o.type='triangle';o.frequency.value=f;g.gain.setValueAtTime(0,c.currentTime);g.gain.linearRampToValueAtTime(.05,c.currentTime+.04);g.gain.setValueAtTime(.05,c.currentTime+.4);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+2.2);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+2.2);},i*70));}catch(e){}}
 
 document.getElementById('ans-input').addEventListener('keydown',e=>{if(e.key==='Enter')checkAnswer();});

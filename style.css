@@ -423,3 +423,73 @@ nav button.on{color:var(--amber)}
 #pts{position:fixed;inset:0;pointer-events:none;z-index:200}
 .pt{position:absolute;border-radius:50%;pointer-events:none;animation:pf var(--d2) var(--dl) ease-out both}
 @keyframes pf{0%{transform:translate(0,0) scale(1);opacity:1}100%{transform:translate(var(--tx),var(--ty)) scale(0);opacity:0}}
+
+/* ═══ LIGHT MODE ═══ */
+body.light{
+  --bg:    #f0ede8;
+  --layer: #ffffff;
+  --layer2:#e8e4de;
+  --line:  rgba(0,0,0,.08);
+  --line2: rgba(0,0,0,.14);
+  --text:  #1a1d24;
+  --muted: #6b7080;
+  --dim:   rgba(0,0,0,.45);
+  --amber2:rgba(180,120,20,.12);
+  --amber3:rgba(180,120,20,.07);
+}
+body.light header{background:var(--layer)}
+body.light nav{background:var(--layer)}
+body.light .answer-input{background:var(--layer)}
+
+/* ═══ SETTINGS ═══ */
+.set-wrap{padding:20px 16px 40px}
+.set-section{
+  font-size:11px;font-weight:600;letter-spacing:1.2px;
+  text-transform:uppercase;color:var(--muted);
+  margin:24px 0 8px;
+}
+.set-section:first-child{margin-top:4px}
+.set-group{
+  background:var(--layer);border-radius:14px;
+  border:1px solid var(--line);overflow:hidden;
+}
+.set-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 16px;gap:16px;
+  border-bottom:1px solid var(--line);
+}
+.set-row:last-child{border-bottom:none}
+.set-row-info{flex:1;min-width:0}
+.set-row-label{font-size:14px;font-weight:500;color:var(--text);margin-bottom:2px}
+.set-row-sub{font-size:11px;color:var(--muted);line-height:1.4}
+
+/* Toggle switch */
+.sw{position:relative;display:inline-block;width:44px;height:26px;flex-shrink:0;cursor:pointer}
+.sw input{opacity:0;width:0;height:0;position:absolute}
+.sw-track{
+  position:absolute;inset:0;border-radius:13px;
+  background:var(--layer2);border:1.5px solid var(--line2);
+  transition:all .25s;
+}
+.sw-track::after{
+  content:'';position:absolute;top:3px;left:3px;
+  width:16px;height:16px;border-radius:50%;
+  background:var(--muted);transition:all .25s;
+}
+.sw input:checked+.sw-track{background:var(--amber);border-color:var(--amber)}
+.sw input:checked+.sw-track::after{transform:translateX(18px);background:#fff}
+
+/* Reset button */
+.set-reset-btn{
+  padding:8px 16px;border-radius:8px;
+  background:rgba(224,90,90,.1);border:1.5px solid rgba(224,90,90,.25);
+  color:var(--red);font-family:var(--s);font-size:13px;font-weight:600;
+  cursor:pointer;transition:all .2s;flex-shrink:0;
+}
+.set-reset-btn:hover{background:rgba(224,90,90,.18);border-color:var(--red)}
+.set-reset-btn:active{transform:scale(.97)}
+
+.set-version{
+  text-align:center;font-size:11px;color:var(--muted);
+  margin-top:32px;letter-spacing:.3px;
+}

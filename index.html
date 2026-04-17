@@ -132,6 +132,49 @@
     </div>
   </div>
 
+  <div class="view" id="view-set">
+    <div class="set-wrap">
+      <div class="set-section">Apariencia</div>
+      <div class="set-group">
+        <div class="set-row">
+          <div class="set-row-info">
+            <div class="set-row-label">Modo claro</div>
+            <div class="set-row-sub">Cambia el fondo a colores claros</div>
+          </div>
+          <label class="sw"><input type="checkbox" id="sw-light" onchange="toggleLight(this.checked)"><span class="sw-track"></span></label>
+        </div>
+      </div>
+      <div class="set-section">Juego</div>
+      <div class="set-group">
+        <div class="set-row">
+          <div class="set-row-info">
+            <div class="set-row-label">Sonido</div>
+            <div class="set-row-sub">Efectos de sonido al responder</div>
+          </div>
+          <label class="sw"><input type="checkbox" id="sw-sound" checked onchange="toggleSound(this.checked)"><span class="sw-track"></span></label>
+        </div>
+        <div class="set-row">
+          <div class="set-row-info">
+            <div class="set-row-label">Ver toda la colección</div>
+            <div class="set-row-sub">Muestra todas las cartas desbloqueadas temporalmente</div>
+          </div>
+          <label class="sw"><input type="checkbox" id="sw-showall" onchange="toggleShowAll(this.checked)"><span class="sw-track"></span></label>
+        </div>
+      </div>
+      <div class="set-section">Datos</div>
+      <div class="set-group">
+        <div class="set-row">
+          <div class="set-row-info">
+            <div class="set-row-label">Reiniciar progreso</div>
+            <div class="set-row-sub">Bloquea todas las cartas y pone la puntuación a 0</div>
+          </div>
+          <button class="set-reset-btn" onclick="resetProgress()">Reiniciar</button>
+        </div>
+      </div>
+      <div class="set-version">Personajes Bíblicos · v1.0</div>
+    </div>
+  </div>
+
   <nav>
     <button class="on" id="nav-quiz" onclick="switchTab('quiz')">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
@@ -140,6 +183,10 @@
     <button id="nav-col" onclick="switchTab('col')">
       <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="12" y="3" width="9" height="5" rx="1"/><rect x="12" y="10" width="9" height="11" rx="1"/></svg>
       Colección
+    </button>
+    <button id="nav-set" onclick="switchTab('set')">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+      Ajustes
     </button>
   </nav>
 </div>
