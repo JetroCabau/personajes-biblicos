@@ -131,7 +131,14 @@ function showReveal(ch){
   document.getElementById('card-overlay').classList.add('show');
   spawnParticles(ch.rarity);sndChord(ch.rarity);
 }
-function closeOverlay(){document.getElementById('card-overlay').classList.remove('show');document.getElementById('pts').innerHTML='';}
+function closeOverlay(){
+  const ov=document.getElementById('card-overlay');
+  ov.classList.remove('show','with-clues');
+  document.getElementById('pts').innerHTML='';
+  document.getElementById('ov-clues').innerHTML='';
+  document.getElementById('ov-tag').textContent='Nueva carta desbloqueada';
+  ov.scrollTop=0;
+}
 document.getElementById('card-overlay').addEventListener('click',e=>{if(e.target===document.getElementById('card-overlay'))closeOverlay();});
 
 function buildCard(ch,unlocked){
@@ -205,7 +212,13 @@ function viewCard(ch){
   document.getElementById('ov-rarity').textContent=RAR[ch.rarity];
   document.getElementById('ov-rarity').className='ov-rarity '+ch.rarity;
   const slot=document.getElementById('ov-slot');slot.innerHTML='';slot.appendChild(buildCard(ch,true));
-  document.getElementById('card-overlay').classList.add('show');
+  const cluesEl=document.getElementById('ov-clues');cluesEl.innerHTML='';
+  ch.clues.forEach((cl,i)=>{
+    const item=document.createElement('div');item.className='ov-clue-item';
+    item.innerHTML=`<div class="ov-clue-num">${i+1}</div><div class="ov-clue-txt">${cl.txt}</div>`;
+    cluesEl.appendChild(item);
+  });
+  document.getElementById('card-overlay').classList.add('show','with-clues');
 }
 
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);}

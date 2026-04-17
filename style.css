@@ -304,6 +304,13 @@ nav button.on{color:var(--amber)}
   backdrop-filter:blur(16px);
 }
 #card-overlay.show{display:flex}
+#card-overlay.with-clues{justify-content:flex-start;overflow-y:auto;padding-top:48px;padding-bottom:32px}
+
+#ov-clues{width:100%;max-width:360px;display:flex;flex-direction:column;gap:0;margin-top:8px}
+.ov-clue-item{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
+.ov-clue-item:first-child{border-top:1px solid var(--line)}
+.ov-clue-num{min-width:24px;height:24px;border-radius:7px;background:var(--layer2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--muted);flex-shrink:0;margin-top:2px}
+.ov-clue-txt{font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.6;color:var(--dim)}
 
 .ov-tag{
   font-size:11px;font-weight:600;letter-spacing:2px;
