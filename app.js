@@ -15,7 +15,7 @@ const PALS={legendaria:['#e8a832','#f0c040','#d49020','#f5d060'],epica:['#c39bd3
 
 
 
-let activePacks=new Set(['at']);
+let activePacks=new Set(['AT-1']);
 let S={pool:[],order:[],idx:0,score:0,streak:0,cluesShown:1,answered:false,correct:false,unlocked:new Set()};
 try{const v=JSON.parse(localStorage.getItem('pb4')||'{}');if(v.u)S.unlocked=new Set(v.u);if(v.s)S.score=v.s;}catch(e){}
 try{const imgs=JSON.parse(localStorage.getItem('pb4_imgs')||'{}');Object.assign(IMAGES,imgs);}catch(e){}
@@ -27,7 +27,9 @@ function current(){return S.pool[S.order[S.idx]];}
 function togglePack(id){const el=document.getElementById('pack-'+id);if(!el||el.classList.contains('locked'))return;activePacks.has(id)?activePacks.delete(id):activePacks.add(id);el.classList.toggle('sel',activePacks.has(id));document.getElementById('start-btn').disabled=activePacks.size===0;}
 
 function startGame(){
-  S.pool=CHARS;S.order=shuffle([...Array(S.pool.length).keys()]);
+  const packMap={'AT-1':CHARS,'AT-2':PACK2,'AT-3':PACK3,'AT-4':PACK4,'AT-5':PACK5};
+  S.pool=[...activePacks].flatMap(id=>packMap[id]||[]);
+  S.order=shuffle([...Array(S.pool.length).keys()]);
   S.idx=0;S.cluesShown=1;S.answered=false;S.correct=false;
   const sp=document.getElementById('splash');sp.classList.add('out');
   setTimeout(()=>{sp.style.display='none';renderQuiz();},500);
