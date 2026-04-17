@@ -145,11 +145,12 @@ function buildCard(ch,unlocked){
   const wrap=document.createElement('div');wrap.className='card-wrap';
   const card=document.createElement('div');card.className='card '+ch.rarity;
   if(unlocked){
+    const imgWrap=document.createElement('div');imgWrap.className='card-img-wrap';
     const img=document.createElement('div');img.className='card-img';
     const src=IMAGES[ch.name];
     if(src){img.style.backgroundImage=`url('${src}')`;}
     else{const fb={legendaria:'linear-gradient(160deg,#1a0d30,#2a1060)',epica:'linear-gradient(160deg,#120018,#1e0035)',rara:'linear-gradient(160deg,#080e18,#0c1e35)',comun:'linear-gradient(160deg,#0e0e10,#1a1a1e)'};img.style.background=fb[ch.rarity]||fb.comun;img.style.cssText+='display:flex;align-items:center;justify-content:center;';const ini=document.createElement('div');ini.style.cssText='font-size:64px;font-weight:700;color:rgba(255,255,255,.06)';ini.textContent=ch.name[0];img.appendChild(ini);}
-    card.appendChild(img);
+    imgWrap.appendChild(img);card.appendChild(imgWrap);
     const grad=document.createElement('div');grad.className='card-grad';card.appendChild(grad);
     const body=document.createElement('div');body.className='card-body';
     body.innerHTML=`<div class="card-name">${ch.name}</div><div class="card-title">${ch.title}</div><div class="card-divider"></div><div class="card-ref">${ch.ref}</div><div class="card-verse">${ch.verse}</div>`;

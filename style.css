@@ -347,12 +347,10 @@ nav button.on{color:var(--amber)}
 .card-wrap{perspective:900px;cursor:pointer;-webkit-tap-highlight-color:transparent;width:100%}
 .card{width:100%;aspect-ratio:2.5/3.5;border-radius:14px;position:relative;transform-style:preserve-3d;will-change:transform;overflow:hidden}
 
-.card.legendaria{box-shadow:0 0 0 1.5px rgba(232,168,50,.5),0 20px 50px rgba(0,0,0,.8),0 0 30px rgba(232,168,50,.1)}
-.card.epica{box-shadow:0 0 0 1.5px rgba(155,89,182,.45),0 20px 50px rgba(0,0,0,.8)}
-.card.rara{box-shadow:0 0 0 1.5px rgba(41,128,185,.4),0 20px 50px rgba(0,0,0,.8)}
-.card.comun{box-shadow:0 0 0 1px rgba(255,255,255,.1),0 20px 50px rgba(0,0,0,.8)}
+.card.legendaria,.card.epica,.card.rara,.card.comun{box-shadow:0 20px 50px rgba(0,0,0,.8)}
 
-.card-img{position:absolute;inset:0;background-size:cover;background-position:center top;animation:kb 6s ease-in-out infinite;border-radius:14px}
+.card-img-wrap{position:absolute;inset:0;border-radius:14px;overflow:hidden}
+.card-img{position:absolute;inset:0;background-size:cover;background-position:center top;animation:kb 6s ease-in-out infinite}
 @keyframes kb{0%,100%{transform:scale(1)}50%{transform:scale(1.04) translateY(-1%)}}
 
 .card-grad{position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(to top,rgba(10,11,18,.99) 0%,rgba(10,11,18,.85) 32%,rgba(10,11,18,.18) 70%,transparent 100%)}
