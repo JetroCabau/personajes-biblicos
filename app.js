@@ -52,12 +52,6 @@ function renderQuiz(){
   document.getElementById('chnum').textContent=(S.idx+1)+'/'+S.pool.length;
   const stk=document.getElementById('stk');if(stk){stk.textContent=S.streak;}
 
-  // Difficulty chip
-  const di=S.cluesShown-1;
-  const chip=document.getElementById('diff-chip');
-  chip.className='diff-chip '+DIFF_CLS[di];
-  document.getElementById('diff-label').textContent=DIFF_LBL[di]+' · Pista '+S.cluesShown+' de 5';
-
   // Clues
   const wrap=document.getElementById('clues');wrap.innerHTML='';
   ch.clues.forEach((cl,i)=>{
@@ -199,8 +193,9 @@ function startPtc(canvas,rarity){
 function mk(w,h,pal,sc=false){const max=3+Math.random()*4;return{x:Math.random()*w,y:sc?Math.random()*h:h+8,vx:(Math.random()-.5)*.25,vy:-(0.18+Math.random()*.4),life:sc?Math.random()*max:0,max,sz:.8+Math.random()*1.8,col:pal[Math.floor(Math.random()*pal.length)],w:Math.random()*Math.PI*2,ws:.6+Math.random()*.5};}
 
 function renderCollection(){
+  const allChars=[...CHARS,...PACK2,...PACK3,...PACK4,...PACK5];
   const grid=document.getElementById('col-grid');grid.innerHTML='';let uc=0;
-  CHARS.forEach(ch=>{
+  allChars.forEach(ch=>{
     const ul=S.unlocked.has(ch.name);if(ul)uc++;
     const cell=document.createElement('div');cell.className='col-cell';
     const wrap=buildCard(ch,ul);
@@ -208,7 +203,7 @@ function renderCollection(){
     cell.appendChild(wrap);
     grid.appendChild(cell);
   });
-  document.getElementById('col-count').textContent=uc+' / '+CHARS.length;
+  document.getElementById('col-count').textContent=uc+' / '+allChars.length;
 }
 
 function viewCard(ch){
