@@ -28,8 +28,9 @@ html,body{
 #splash{
   position:fixed;inset:0;z-index:500;
   display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  background:var(--bg);padding:32px 24px;
+  align-items:center;justify-content:flex-start;
+  background:var(--bg);padding:40px 24px 32px;
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
   transition:opacity .5s, transform .5s;
 }
 #splash.out{opacity:0;transform:translateY(-12px) scale(1.03);pointer-events:none}
@@ -43,13 +44,13 @@ html,body{
 .sp-logo svg{width:22px;height:22px;fill:var(--amber)}
 
 .sp-title{font-size:26px;font-weight:700;color:var(--text);text-align:center;margin-bottom:6px;letter-spacing:-.5px}
-.sp-sub{font-size:14px;color:var(--muted);text-align:center;margin-bottom:44px;line-height:1.5}
+.sp-sub{font-size:14px;color:var(--muted);text-align:center;margin-bottom:28px;line-height:1.5}
 
-.sp-section{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;width:100%;max-width:340px;text-align:center}
+.sp-section{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;width:100%;max-width:340px;text-align:left}
 
-.sp-packs{display:flex;gap:10px;width:100%;max-width:340px;margin-bottom:40px}
+.sp-packs{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%;max-width:340px;margin-bottom:20px}
 .sp-pack{
-  flex:1;padding:16px 14px;
+  padding:12px 12px 10px;
   border-radius:12px;background:var(--layer);
   border:1.5px solid var(--line);
   cursor:pointer;text-align:left;
@@ -57,8 +58,9 @@ html,body{
 }
 .sp-pack.sel{border-color:rgba(232,168,50,.4);background:var(--amber3)}
 .sp-pack.locked{opacity:.4;cursor:not-allowed}
-.sp-pack-name{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px}
-.sp-pack-n{font-size:12px;color:var(--muted)}
+.sp-pack-name{font-size:13px;font-weight:600;color:var(--text);margin-bottom:1px;padding-right:22px}
+.sp-pack-books{font-size:10px;color:var(--muted);margin-bottom:1px}
+.sp-pack-n{font-size:11px;color:var(--muted)}
 .sp-pack-soon{font-size:10px;color:var(--muted);margin-top:2px;letter-spacing:.5px}
 .sp-check{
   position:absolute;top:12px;right:12px;
