@@ -36,7 +36,16 @@ const IMAGES = {
   'Set':            'images/Set.jpg',
   'Asenat':         'images/Asenat.jpg',
   'Jehová':         'images/Jehová.jpg',
-  'Tamar':          'images/Tamar.jpg',
+  'Tamar':                   'images/Tamar.jpg',
+  'Jael':                    'images/Jael.jpg',
+  'Sísara':                  'images/Sísara.jpg',
+  'Aod':                     'images/Aod.jpg',
+  'Abimelec':                'images/Abimelec.jpg',
+  'Otoniel':                 'images/Otoniel.jpg',
+  'La hija de Jefté':        'images/La hija de Jefté.jpg',
+  'Manoa':                   'images/Manoa.jpg',
+  'La madre de Sansón':      'images/La madre de Sansón.jpg',
+  'La mujer de Tebés':       'images/La mujer de Tebés.jpg',
 };
 
 // ── Pack 1 · Génesis (30) ─────────────────────────
@@ -270,6 +279,78 @@ clues:[
 {diff:2,txt:"Cuando descubrí a la mujer dormida a mis pies en el campo nocturno, comprendí el significado del gesto. Le prometí que, si el pariente más cercano no quería ejercer su derecho, yo lo haría."},
 {diff:3,txt:"Fui a la puerta de la ciudad —el tribunal de la época— con diez ancianos como testigos. Cuando el pariente más cercano rechazó su derecho por razones financieras, me quité la sandalia según la costumbre y tomé la responsabilidad."},
 {diff:4,txt:"Soy Booz de Belén, pariente redentor de Noemí que me casé con su nuera Rut. Fui antepasado del rey David. Mi historia ilustra el concepto bíblico del «go'el», el que redime al pariente necesitado."}
+]},
+{name:"Jael",title:"La que acabó con el general enemigo",ref:"Jueces 4:21",verse:"Jael tomó una estaca de la tienda y un mazo, y mientras él dormía profundamente le clavó la estaca en la sien.",rarity:"epica",pack:"p3",
+clues:[
+{diff:0,txt:"Mi esposo había firmado un pacto de paz con el rey cananeo, así que el comandante enemigo pensó que mi tienda era el último lugar donde lo buscarían."},
+{diff:1,txt:"Ofrecí leche y una manta al fugitivo exhausto. «Quédate aquí», le dije. «No tengas miedo». Se quedó dormido pensando que estaba a salvo."},
+{diff:2,txt:"Tomé los mismos objetos que cualquier mujer del desierto usaba a diario para montar la tienda: un mazo y una estaca, y los usé como armas."},
+{diff:3,txt:"La profetisa Débora había predicho que la gloria de esa batalla no sería para el general israelita sino para una mujer. Yo fui esa mujer."},
+{diff:4,txt:"Soy Jael, esposa de Heber el quenita. Clavé una estaca de tienda en la sien del general Sísara mientras dormía, dando cumplimiento a la profecía de Débora."}
+]},
+{name:"Sísara",title:"El general vencido y traicionado",ref:"Jueces 4:15",verse:"Jehová llenó de pánico a Sísara y a todo su ejército delante de Barac.",rarity:"rara",pack:"p3",
+clues:[
+{diff:0,txt:"Comandaba la fuerza militar más temible de Canaán: novecientos carros de hierro. Con ellos había oprimido a Israel durante veinte años. Nadie en la región podía enfrentarme."},
+{diff:1,txt:"Cuando el pánico se apoderó de mi ejército en el torrente de Quisón, bajé de mi carro de combate y huí a pie. Era el comandante más poderoso de la región corriendo solo por el campo."},
+{diff:2,txt:"Busqué refugio en la tienda de alguien cuya familia tenía un pacto de paz con mi rey. Pensé que estaba entre amigos. Me equivoqué."},
+{diff:3,txt:"Una mujer me ofreció leche, me cubrió con una manta y me dijo que no tuviera miedo. Me dormí exhausto. Nunca más desperté."},
+{diff:4,txt:"Soy Sísara, comandante del ejército del rey Jabín de Canaán. Fui derrotado por Débora y Barac en el monte Tabor, y muerto mientras dormía en la tienda de Jael."}
+]},
+{name:"Aod",title:"El juez zurdo",ref:"Jueces 3:15",verse:"Jehová les levantó un libertador: Aod hijo de Gera, benjaminita, que era zurdo.",rarity:"epica",pack:"p3",
+clues:[
+{diff:0,txt:"Fabriqué en secreto una espada de doble filo de un codo de longitud y la até a mi muslo derecho, bajo la ropa, en el lado donde nadie esperaba encontrar un arma en un hombre diestro."},
+{diff:1,txt:"Fui a presentar el tributo al rey enemigo con el pretexto de tener un mensaje secreto para él. El rey despidió a todos sus sirvientes para escucharme en privado."},
+{diff:2,txt:"El rey al que maté era tan obeso que cuando saqué la espada y la clavé en su vientre, la grasa se cerró sobre la hoja y ni siquiera pude sacarla. Salí y cerré la puerta."},
+{diff:3,txt:"Sus sirvientes esperaron largo tiempo. Pensaron que el rey estaba atendiendo necesidades privadas. Para cuando abrieron la puerta, yo ya había escapado y convocado al ejército de Israel."},
+{diff:4,txt:"Soy Aod, juez de Israel de la tribu de Benjamín. Siendo zurdo, usé esa ventaja inesperada para matar al rey Eglón de Moab y liberar a Israel de dieciocho años de opresión."}
+]},
+{name:"Abimelec",title:"El falso rey de Siquem",ref:"Jueces 9:6",verse:"Los hombres de Siquem y los de Bet-milo fueron y proclamaron rey a Abimelec.",rarity:"rara",pack:"p3",
+clues:[
+{diff:0,txt:"Usé setenta monedas de plata del templo de Baal-berit para contratar a hombres ociosos y sinvergüenzas que me ayudaran en mi plan de poder."},
+{diff:1,txt:"Llevé a mis setenta medio hermanos —hijos del mismo padre— a una sola piedra y los maté uno a uno. Solo el más joven escapó escondiéndose."},
+{diff:2,txt:"El único hermano que sobrevivió pronunció una parábola de los árboles desde la cima del monte Gerizim, prediciendo mi fin. Sus palabras resultaron ser una maldición profética."},
+{diff:3,txt:"Sitiaba una torre cuando una mujer dejó caer una piedra de molino sobre mi cabeza y me aplastó el cráneo. Mi último pensamiento fue pedir a mi escudero que me rematara con la espada para que nadie dijera que me mató una mujer."},
+{diff:4,txt:"Soy Abimelec, hijo de Gedeón y una concubina siquemita. Me autoproclamé rey de Siquem tras asesinar a setenta hermanos. Reiné tres años antes de que se cumpliera la maldición de mi hermano Jotam."}
+]},
+{name:"Otoniel",title:"El primer juez de Israel",ref:"Jueces 3:9",verse:"Jehová levantó un libertador para los israelitas, que los libró: Otoniel hijo de Quenaz, hermano menor de Caleb.",rarity:"rara",pack:"p3",
+clues:[
+{diff:0,txt:"Antes de que Dios me levantara como juez, conquisté una ciudad fuertemente defendida en el Néguev que nadie más había podido tomar. Como recompensa recibí la mano de una joven como esposa."},
+{diff:1,txt:"Mi esposa, al casarse conmigo, le pidió a su padre un regalo de bodas especial: manantiales de agua, tanto los de arriba como los de abajo. Era una mujer que sabía lo que necesitaba."},
+{diff:2,txt:"El espíritu de Jehová vino sobre mí y salí a la guerra. El enemigo no pudo resistirme. Israel tuvo paz durante cuarenta años después de la victoria."},
+{diff:3,txt:"Liberé a Israel de la opresión de un rey cuyo nombre doble significa «doble maldad»: Cusan-risataim, rey de Mesopotamia, que los había oprimido durante ocho años."},
+{diff:4,txt:"Soy Otoniel hijo de Quenaz, sobrino de Caleb. Soy el primer juez que Jehová levantó para liberar a Israel. Las Escrituras no registran ningún defecto en mi carácter ni en mi conducta."}
+]},
+{name:"La hija de Jefté",title:"La que aceptó el voto de su padre",ref:"Jueces 11:36",verse:"Padre mío, si diste tu palabra a Jehová, haz conmigo conforme a lo que prometiste.",rarity:"rara",pack:"p3",
+clues:[
+{diff:0,txt:"Salí de casa con tamboriles y danzas para ser la primera en recibir a mi padre cuando regresó victorioso de la batalla. No sabía lo que ese gesto significaría."},
+{diff:1,txt:"Al ver la expresión de mi padre al llegar, comprendí que algo terrible había pasado. Él rasgó sus vestiduras. Me dijo que yo eras la causa de su angustia, que había hecho un voto que no podía romper."},
+{diff:2,txt:"Solo pedí una cosa: dos meses para recorrer las montañas con mis amigas lamentando que moriría sin haberme casado ni tenido hijos. Mi padre aceptó."},
+{diff:3,txt:"Volví al cabo de dos meses. Le dije a mi padre que hiciera conmigo lo que había prometido, ya que Dios le había dado la victoria sobre sus enemigos. No le puse ningún obstáculo."},
+{diff:4,txt:"Soy la hija sin nombre de Jefté. Mi valentía y obediencia al aceptar el voto de mi padre se convirtieron en motivo de una conmemoración anual de cuatro días entre las mujeres de Israel."}
+]},
+{name:"Manoa",title:"El padre de Sansón",ref:"Jueces 13:8",verse:"Manoa oró a Jehová y dijo: «Por favor, Señor, que el hombre de Dios que enviaste vuelva a venir a nosotros.»",rarity:"comun",pack:"p3",
+clues:[
+{diff:0,txt:"Mi esposa me contó que un hombre con un aspecto imponente le había hablado. No lo vi yo mismo, así que oré para que volviera a aparecer y nos instruyera sobre cómo criar al hijo prometido."},
+{diff:1,txt:"Cuando el visitante volvió, lo invité a quedarse a comer. Él rechazó la comida pero aceptó que le ofreciéramos un holocausto a Jehová. Todavía no sabía que era un ángel."},
+{diff:2,txt:"Cuando la llama del altar subió al cielo, el ángel ascendió dentro de ella. Mi primera reacción fue caer rostro en tierra aterrorizado, convencido de que íbamos a morir por haber visto a Dios."},
+{diff:3,txt:"Mi esposa me calmó con un argumento más sensato que el mío: si Dios quisiera matarnos, no habría aceptado nuestro holocausto ni nos habría prometido un hijo."},
+{diff:4,txt:"Soy Manoa, de la ciudad de Zora, de la tribu de Dan. Soy el padre de Sansón. Mi esposa y yo recibimos la visita de un ángel que nos anunció el nacimiento de un nazareo destinado a liberar a Israel."}
+]},
+{name:"La madre de Sansón",title:"La mujer a quien habló el ángel",ref:"Jueces 13:3",verse:"He aquí que eres estéril y nunca has dado a luz, pero concebirás y darás a luz un hijo.",rarity:"rara",pack:"p3",
+clues:[
+{diff:0,txt:"Un mensajero divino se me apareció a mí primero, no a mi esposo. Me dijo que era estéril pero que quedaría encinta. Debía abstenerme de vino, bebida fuerte y alimento impuro durante el embarazo."},
+{diff:1,txt:"Corrí a contárselo a mi esposo. Cuando el ángel volvió, fue a mí otra vez mientras estaba sola en el campo. Tuve que ir a buscar a mi esposo para que también pudiera verlo."},
+{diff:2,txt:"Cuando mi esposo, aterrorizado, dijo que moriríamos por haber visto a Dios, fui yo quien razonó con más calma: un Dios que nos anuncia un hijo no tiene intención de matarnos."},
+{diff:3,txt:"Mi nombre nunca aparece en la Biblia. Sin embargo, el ángel vino a mí dos veces mientras que a mi esposo solo una. Dios confió en mi comprensión espiritual para comunicar el mensaje primero."},
+{diff:4,txt:"Soy la esposa de Manoa, madre de Sansón. El ángel de Jehová me indicó que mi hijo sería nazareo desde el vientre. Aunque la Biblia no registra mi nombre, mi fe y sensatez son más evidentes que las de mi esposo."}
+]},
+{name:"La mujer de Tebés",title:"La que detuvo a Abimelec",ref:"Jueces 9:53",verse:"Una mujer dejó caer un pedazo de piedra de molino sobre la cabeza de Abimelec y le rompió el cráneo.",rarity:"comun",pack:"p3",
+clues:[
+{diff:0,txt:"Estaba en una torre de la ciudad con otros habitantes que se habían refugiado allí cuando el ejército enemigo llegó e incendió la ciudad."},
+{diff:1,txt:"El comandante que sitiaba la torre se acercó personalmente a la puerta del edificio para prenderle fuego. En ese momento actué."},
+{diff:2,txt:"No usé espada ni lanza. Tomé lo que tenía a mano: un fragmento de piedra de molino, y lo lancé desde lo alto de la torre."},
+{diff:3,txt:"El golpe fue mortal. El comandante, todavía consciente, llamó a su escudero y le pidió que lo rematara con la espada para que no se dijera de él que lo había matado una mujer."},
+{diff:4,txt:"Soy una mujer anónima de Tebés. Con una piedra de molino puse fin al reinado de Abimelec, cumpliendo así la maldición profética que Jotam había pronunciado desde el monte Gerizim."}
 ]},
 {name:"Barac",title:"El general que necesitó a Débora",ref:"Jueces 4:14",verse:"Levántate, porque este es el día en que Jehová ha entregado a Sísara en tu mano.",rarity:"comun",pack:"p3",
 clues:[
