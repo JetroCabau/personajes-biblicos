@@ -441,6 +441,10 @@ body.light{
 body.light header{background:var(--layer)}
 body.light nav{background:var(--layer)}
 body.light .answer-input{background:var(--layer)}
+body.light #card-overlay{background:rgba(240,237,232,.97)}
+body.light .ov-tag{color:var(--muted)}
+body.light .ov-clue-txt{color:var(--text)}
+body.light .ov-close{background:var(--layer2);border-color:var(--line2);color:var(--text)}
 
 /* ═══ SETTINGS ═══ */
 .set-wrap{padding:20px 16px 40px}
