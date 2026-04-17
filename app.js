@@ -137,6 +137,7 @@ function closeOverlay(){
   document.getElementById('pts').innerHTML='';
   document.getElementById('ov-clues').innerHTML='';
   document.getElementById('ov-tag').textContent='Nueva carta desbloqueada';
+  document.getElementById('ov-back').style.display='none';
   ov.scrollTop=0;
 }
 document.getElementById('card-overlay').addEventListener('click',e=>{if(e.target===document.getElementById('card-overlay'))closeOverlay();});
@@ -219,6 +220,7 @@ function viewCard(ch){
     item.innerHTML=`<div class="ov-clue-num">${i+1}</div><div class="ov-clue-txt">${cl.txt}</div>`;
     cluesEl.appendChild(item);
   });
+  document.getElementById('ov-back').style.display='flex';
   document.getElementById('card-overlay').classList.add('show','with-clues');
 }
 

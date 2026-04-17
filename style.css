@@ -83,7 +83,7 @@ html,body{
 .sp-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
 
 /* ═══ APP ═══ */
-.app{position:relative;z-index:1;max-width:480px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
+.app{position:relative;z-index:1;max-width:480px;margin:0 auto;height:100vh;height:100dvh;display:flex;flex-direction:column}
 
 /* Header */
 header{
@@ -338,6 +338,17 @@ nav button.on{color:var(--amber)}
 }
 .ov-close:hover{background:var(--layer2);border-color:var(--amber)}
 
+.ov-back{
+  position:fixed;top:16px;left:16px;
+  width:38px;height:38px;border-radius:50%;
+  background:var(--layer);border:1px solid var(--line2);
+  color:var(--text);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;z-index:10;
+}
+.ov-back:hover{background:var(--layer2);border-color:var(--amber);color:var(--amber)}
+.ov-back svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
 @keyframes fdown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
 @keyframes fup{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes scalePop{0%{opacity:0;transform:scale(.5)}70%{opacity:1;transform:scale(1.05)}100%{opacity:1;transform:scale(1)}}
@@ -376,6 +387,14 @@ nav button.on{color:var(--amber)}
 .card-lock-icon{width:36px;height:36px;border-radius:50%;background:var(--layer2);display:flex;align-items:center;justify-content:center}
 .card-lock-icon svg{width:16px;height:16px;fill:none;stroke:var(--muted);stroke-width:2}
 .card-lock-txt{font-size:10px;font-weight:500;color:var(--muted);text-align:center;padding:0 14px;line-height:1.6;letter-spacing:.3px}
+
+/* Cards smaller in collection grid */
+.col-cell .card-name{font-size:15px;margin-bottom:1px}
+.col-cell .card-title{font-size:9px;margin-bottom:5px}
+.col-cell .card-divider{width:16px;margin-bottom:5px}
+.col-cell .card-ref{font-size:9px;margin-bottom:2px}
+.col-cell .card-verse{font-size:9px;-webkit-line-clamp:2}
+.col-cell .card-body{padding:10px 10px 12px}
 
 /* ═══ COLLECTION ═══ */
 .col-wrap{padding:20px 16px 28px}

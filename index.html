@@ -38,6 +38,9 @@
 
 <!-- CARD OVERLAY -->
 <div id="card-overlay">
+  <button class="ov-back" id="ov-back" onclick="closeOverlay()" style="display:none">
+    <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+  </button>
   <div class="ov-tag" id="ov-tag">Nueva carta desbloqueada</div>
   <div class="ov-rarity" id="ov-rarity"></div>
   <div id="ov-slot"></div>
@@ -85,7 +88,7 @@
   <nav>
     <button class="on" id="nav-quiz" onclick="switchTab('quiz')">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      Quiz
+      Preguntas
     </button>
     <button id="nav-col" onclick="switchTab('col')">
       <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="12" y="3" width="9" height="5" rx="1"/><rect x="12" y="10" width="9" height="11" rx="1"/></svg>
