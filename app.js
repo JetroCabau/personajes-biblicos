@@ -79,8 +79,9 @@ function renderQuiz(){
     // All clues shown — no button needed, just a subtle note
   }
 
-  const inp=document.getElementById('ans-input'),btn=document.getElementById('ans-btn');
+  const inp=document.getElementById('ans-input'),btn=document.getElementById('ans-btn'),skip=document.getElementById('skip-btn');
   inp.value='';inp.className='answer-input';inp.disabled=S.answered;btn.disabled=S.answered;
+  if(skip)skip.style.display=S.answered?'none':'block';
   if(!S.answered)setTimeout(()=>inp.focus(),200);
   document.getElementById('result-wrap').innerHTML='';
   if(S.answered)renderResult(ch);
@@ -120,6 +121,7 @@ function checkAnswer(){
   if(ok){S.correct=true;S.score+=PTS[S.cluesShown-1]||10;S.streak++;S.unlocked.add(ch.name);save();if(S.streak>=3)spawnParticles('legendaria');snd(true);setTimeout(()=>{renderQuiz();setTimeout(()=>showReveal(ch),350);},400);}
   else{S.correct=false;S.streak=0;save();snd(false);setTimeout(renderQuiz,400);}
 }
+function skipChar(){if(S.answered)return;S.answered=true;S.correct=false;S.streak=0;save();snd(false);setTimeout(renderQuiz,400);}
 function nextChar(){S.idx++;if(S.idx>=S.pool.length){S.idx=0;S.order=shuffle([...Array(S.pool.length).keys()]);}S.cluesShown=1;S.answered=false;S.correct=false;document.getElementById('view-quiz').scrollTop=0;renderQuiz();}
 
 function showReveal(ch){
@@ -190,13 +192,20 @@ function renderCollection(){
   CHARS.forEach(ch=>{
     const ul=S.unlocked.has(ch.name);if(ul)uc++;
     const cell=document.createElement('div');cell.className='col-cell';
-    cell.appendChild(buildCard(ch,ul));
-    const inp=document.createElement('input');inp.type='file';inp.accept='image/*';inp.className='upload-input';inp.id='u_'+ch.name.replace(/\s/g,'_');
-    const lbl=document.createElement('label');lbl.className='upload-btn';lbl.htmlFor=inp.id;lbl.textContent=IMAGES[ch.name]?'Cambiar imagen':'Añadir imagen';
-    inp.addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{IMAGES[ch.name]=ev.target.result;saveImgs();renderCollection();showToast(ch.name+' actualizado');};r.readAsDataURL(f);});
-    cell.appendChild(inp);cell.appendChild(lbl);grid.appendChild(cell);
+    const wrap=buildCard(ch,ul);
+    if(ul)wrap.addEventListener('click',()=>viewCard(ch));
+    cell.appendChild(wrap);
+    grid.appendChild(cell);
   });
   document.getElementById('col-count').textContent=uc+' / '+CHARS.length;
+}
+
+function viewCard(ch){
+  document.getElementById('ov-tag').textContent=ch.name;
+  document.getElementById('ov-rarity').textContent=RAR[ch.rarity];
+  document.getElementById('ov-rarity').className='ov-rarity '+ch.rarity;
+  const slot=document.getElementById('ov-slot');slot.innerHTML='';slot.appendChild(buildCard(ch,true));
+  document.getElementById('card-overlay').classList.add('show');
 }
 
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);}
