@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#111318">
+<title>Personajes Bíblicos</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="pts"></div>
+<div id="toast"></div>
+
+<!-- SPLASH -->
+<div id="splash">
+  <div class="sp-logo">
+    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+  </div>
+  <div class="sp-title">Personajes Bíblicos</div>
+  <div class="sp-sub">Adivina el personaje con pistas.<br>Desbloquea cartas y completa la colección.</div>
+  <div class="sp-section">Elige tu colección</div>
+  <div class="sp-packs">
+    <div class="sp-pack sel" id="pack-at" onclick="togglePack('at')">
+      <div class="sp-pack-name">Antiguo Testamento</div>
+      <div class="sp-pack-n">30 personajes · Génesis</div>
+      <span class="sp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+    </div>
+    <div class="sp-pack locked">
+      <div class="sp-pack-name">Nuevo Testamento</div>
+      <div class="sp-pack-n">Próximamente</div>
+      <div class="sp-pack-soon">En desarrollo</div>
+    </div>
+  </div>
+  <button class="sp-btn" id="start-btn" onclick="startGame()">Empezar</button>
+</div>
+
+<!-- CARD OVERLAY -->
+<div id="card-overlay">
+  <div class="ov-tag">Nueva carta desbloqueada</div>
+  <div class="ov-rarity" id="ov-rarity"></div>
+  <div id="ov-slot"></div>
+  <button class="ov-close" onclick="closeOverlay()">Continuar</button>
+</div>
+
+<div class="app">
+  <header>
+    <div class="hdr-left">
+      <div class="hdr-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <div class="hdr-brand">Personajes Bíblicos</div>
+    </div>
+    <div class="hdr-pills">
+      <div class="hdr-pill amber"><div class="dot"></div><span id="sc">0</span></div>
+      <div class="hdr-pill white"><span id="chnum">1/30</span></div>
+    </div>
+  </header>
+
+  <div class="view on" id="view-quiz">
+    <div class="quiz-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="prog" style="width:0%"></div></div>
+      <div class="diff-chip d5" id="diff-chip"><span class="pip"></span><span id="diff-label">Muy difícil</span></div>
+      <div class="clues" id="clues"></div>
+      <label class="answer-label">Nombre del personaje</label>
+      <input class="answer-input" id="ans-input" type="text" placeholder="Escribe aquí…" autocomplete="off" autocorrect="off" spellcheck="false"/>
+      <button class="confirm-btn" id="ans-btn" onclick="checkAnswer()">Confirmar</button>
+      <div id="result-wrap"></div>
+    </div>
+    <div class="legend">
+      <div class="leg"><div class="leg-dot" style="background:#e07070"></div>Muy difícil</div>
+      <div class="leg"><div class="leg-dot" style="background:#e09050"></div>Difícil</div>
+      <div class="leg"><div class="leg-dot" style="background:#c8b432"></div>Medio</div>
+      <div class="leg"><div class="leg-dot" style="background:#4db87a"></div>Fácil</div>
+      <div class="leg"><div class="leg-dot" style="background:#5096dc"></div>Muy fácil</div>
+    </div>
+  </div>
+
+  <div class="view" id="view-col">
+    <div class="col-wrap">
+      <div class="col-header">
+        <div class="col-title">Colección</div>
+        <div class="col-badge" id="col-count">0 / 30</div>
+      </div>
+      <div class="col-grid" id="col-grid"></div>
+    </div>
+  </div>
+
+  <nav>
+    <button class="on" id="nav-quiz" onclick="switchTab('quiz')">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      Quiz
+    </button>
+    <button id="nav-col" onclick="switchTab('col')">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="12" y="3" width="9" height="5" rx="1"/><rect x="12" y="10" width="9" height="11" rx="1"/></svg>
+      Colección
+    </button>
+  </nav>
+</div>
+
+<script src="characters.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
